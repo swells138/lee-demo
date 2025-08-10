@@ -8,12 +8,12 @@ export default function Header() {
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/images/LeesLOGO.JPG"
-            alt="Lee's Concessions Logo"
+            alt="Lee&apos;s Concessions Logo"
             width={48}
             height={48}
             className="rounded"
           />
-          <span className="font-bold">Lee's Concessions</span>
+          <span className="font-bold">Lee&apos;s Concessions</span>
         </Link>
         <nav className="space-x-4 font-semibold">
           <Link href="/about" className="hover:text-[#FFD700]">
