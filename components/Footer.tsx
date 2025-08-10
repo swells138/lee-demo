@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#FFD700] text-[#FF0000]">
       <div className="mx-auto max-w-6xl p-4 text-center">
         <p className="font-bold">
-          Mdl Professional Food Service LLC DBA Lee's Concessions
+          Mdl Professional Food Service LLC DBA Lee&apos;s Concessions
         </p>
         <p>
           <a href="mailto:mlee2@woh.rr.com" className="underline">
@@ -21,7 +21,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="mt-2 text-sm">
-          &copy; {new Date().getFullYear()} Lee's Concessions. All rights reserved.
+          &copy; {new Date().getFullYear()} Lee&apos;s Concessions. All rights reserved.
         </p>
       </div>
     </footer>

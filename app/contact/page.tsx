@@ -1,10 +1,13 @@
 import ContactForm from "@/components/ContactForm";
 import EventBookingForm from "@/components/EventBookingForm";
 
-export default function Contact({ searchParams }: { searchParams?: { product?: string } }) {
-  const message = searchParams?.product
-    ? `Interested in ${searchParams.product}`
-    : "";
+export default async function Contact({
+  searchParams,
+}: {
+  searchParams?: Promise<{ product?: string }>;
+}) {
+  const params = await searchParams;
+  const message = params?.product ? `Interested in ${params.product}` : "";
 
   return (
     <div className="mx-auto max-w-5xl space-y-8 p-4">
