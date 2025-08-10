@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-sans bg-white text-gray-900 flex min-h-screen flex-col`}
+        className={`${inter.variable} font-sans text-gray-900 flex min-h-screen flex-col`}
       >
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 bg-white/80 backdrop-blur-sm">{children}</main>
         <Footer />
       </body>
     </html>
