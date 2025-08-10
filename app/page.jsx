@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="space-y-16">
       <section className="text-center">
-        <div className="relative mx-auto h-64 max-w-5xl">
+        <div className="relative mx-auto h-100 max-w-5xl">
           <Image
-            src="/images/trailer-front.png"
+            src="/images/trailer.png"
             alt="Food trailer"
             fill
             className="object-cover"
