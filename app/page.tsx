@@ -8,7 +8,7 @@ export default function Home() {
       <section className="text-center">
         <div className="relative mx-auto h-64 max-w-5xl">
           <Image
-            src="https://via.placeholder.com/1200x400"
+            src="/images/trailer-front.png"
             alt="Food trailer"
             fill
             className="object-cover"
@@ -84,13 +84,13 @@ export default function Home() {
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <ProductCard
             title="Box Lunch"
-            image="https://via.placeholder.com/400x300"
+            image="/images/tenderloin.png"
             description="Perfect individual meals for any gathering."
             price="$12"
           />
           <ProductCard
             title="Party Tray"
-            image="https://via.placeholder.com/400x300"
+            image="/images/pretzel.png"
             description="Feeds the whole crowd with ease."
             price="$45"
           />

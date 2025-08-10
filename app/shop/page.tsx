@@ -4,13 +4,13 @@ export default function Shop() {
   const products = [
     {
       title: "Box Lunch",
-      image: "https://via.placeholder.com/400x300",
+      image: "/images/bologna.png",
       description: "Perfect individual meals for any gathering.",
       price: "$12",
     },
     {
       title: "Party Tray",
-      image: "https://via.placeholder.com/400x300",
+      image: "/images/hot-dog.png",
       description: "Feeds the whole crowd with ease.",
       price: "$45",
     },
