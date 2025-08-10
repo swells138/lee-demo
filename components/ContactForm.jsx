@@ -11,24 +11,18 @@ const schema = z.object({
   message: z.string().min(1, "Message is required"),
 });
 
-type FormData = z.infer<typeof schema>;
-
-export default function ContactForm({
-  defaultMessage = "",
-}: {
-  defaultMessage?: string;
-}) {
+export default function ContactForm({ defaultMessage = "" } = {}) {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
+  } = useForm({
     resolver: zodResolver(schema),
     defaultValues: { message: defaultMessage },
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data) => {
     await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

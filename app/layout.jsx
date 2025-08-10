@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -12,7 +11,7 @@ export const metadata = {
     "Professional Food Service, Catering & ServSafe Training in Ohio",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body

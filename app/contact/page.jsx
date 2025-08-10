@@ -1,11 +1,7 @@
 import ContactForm from "@/components/ContactForm";
 import EventBookingForm from "@/components/EventBookingForm";
 
-export default async function Contact({
-  searchParams,
-}: {
-  searchParams?: Promise<{ product?: string }>;
-}) {
+export default async function Contact({ searchParams } = {}) {
   const params = await searchParams;
   const message = params?.product ? `Interested in ${params.product}` : "";
 

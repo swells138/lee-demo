@@ -8,28 +8,25 @@ const schema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email"),
   phone: z.string().optional(),
-  date: z.string().min(1, "Event date is required"),
-  details: z.string().min(1, "Please provide event details"),
+  date: z.string().min(1, "Preferred date is required"),
 });
 
-type FormData = z.infer<typeof schema>;
-
-export default function EventBookingForm() {
+export default function ClassSignupForm() {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(schema) });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data) => {
     await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...data, message: data.details }),
+      body: JSON.stringify({ ...data, message: `Class signup for ${data.date}` }),
     });
     reset();
-    alert("Booking request sent!");
+    alert("Signup sent!");
   };
 
   return (
@@ -73,7 +70,7 @@ export default function EventBookingForm() {
       </div>
       <div>
         <label className="block font-semibold" htmlFor="date">
-          Event Date
+          Preferred Date
         </label>
         <input
           id="date"
@@ -85,26 +82,12 @@ export default function EventBookingForm() {
           <p className="text-sm text-red-600">{errors.date.message}</p>
         )}
       </div>
-      <div>
-        <label className="block font-semibold" htmlFor="details">
-          Event Details
-        </label>
-        <textarea
-          id="details"
-          rows={4}
-          {...register("details")}
-          className="w-full rounded border p-2"
-        />
-        {errors.details && (
-          <p className="text-sm text-red-600">{errors.details.message}</p>
-        )}
-      </div>
       <button
         type="submit"
         disabled={isSubmitting}
         className="rounded bg-[#FF0000] px-4 py-2 font-bold text-white hover:bg-[#cc0000] disabled:opacity-50"
       >
-        {isSubmitting ? "Sending..." : "Book Event"}
+        {isSubmitting ? "Sending..." : "Sign Up"}
       </button>
     </form>
   );
