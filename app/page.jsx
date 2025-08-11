@@ -84,13 +84,15 @@ export default function Home() {
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <ProductCard
             title="Box Lunch"
-            image="/images/tenderloin.png"
+            imageSrc="/images/tenderloin.png"
+            imageAlt="Breaded tenderloin sandwich"
             description="Perfect individual meals for any gathering."
             price="$12"
           />
           <ProductCard
             title="Party Tray"
-            image="/images/pretzel.png"
+            imageSrc="/images/pretzel.png"
+            imageAlt="Soft pretzel with salt"
             description="Feeds the whole crowd with ease."
             price="$45"
           />
