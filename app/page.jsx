@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProductCard from "@/components/ProductCard";
+import ShopSection from "@/components/ShopSection";
 
 export default function Home() {
   return (
@@ -79,26 +79,7 @@ export default function Home() {
         <p className="mt-2">Customer reviews coming soon.</p>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4">
-        <h2 className="text-2xl font-bold text-[#FF0000]">Shop</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <ProductCard
-            title="Box Lunch"
-            image="/images/tenderloin.png"
-            description="Perfect individual meals for any gathering."
-            price="$12"
-          />
-          <ProductCard
-            title="Party Tray"
-            image="/images/pretzel.png"
-            description="Feeds the whole crowd with ease."
-            price="$45"
-          />
-        </div>
-        <Link href="/shop" className="mt-4 inline-block font-bold text-[#FF0000]">
-          View All →
-        </Link>
-      </section>
+      <ShopSection />
 
       <section className="bg-[#FF0000] py-8 text-center text-white">
         <h2 className="text-2xl font-bold">Ready to work with us?</h2>
