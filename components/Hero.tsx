@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -21,18 +22,18 @@ export default function Hero() {
           Ohio provider. Book services or enroll in the next class.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <a
+          <Link
             href="/classes"
             className="px-6 py-3 rounded-2xl bg-[#D32F2F] hover:bg-red-700 font-semibold focus:outline-none focus:ring-4 focus:ring-white/40"
           >
             Sign Up for a Class
-          </a>
-          <a
+          </Link>
+          <Link
             href="/services#catering"
             className="px-6 py-3 rounded-2xl ring-2 ring-[#FFC107] bg-yellow-400/10 hover:bg-yellow-400/20 font-semibold focus:outline-none focus:ring-4 focus:ring-yellow-200/50"
           >
             Book Catering
-          </a>
+          </Link>
         </div>
       </div>
     </section>
