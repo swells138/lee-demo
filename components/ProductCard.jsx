@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
 
   return (
     <article className="group bg-white/95 backdrop-blur rounded-2xl shadow-md ring-1 ring-black/10 hover:shadow-lg transition-shadow overflow-hidden">
-      <div className="relative w-full aspect-[4/3]">
+      <div className="relative w-full aspect-square md:aspect-[4/3]">
         <Image
           src={imageSrc}
           alt={imageAlt || title}
