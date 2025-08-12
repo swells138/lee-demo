@@ -41,7 +41,7 @@ export default function Services() {
 
       {/* Cards */}
       <section className="mx-auto max-w-5xl px-4">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {services.map((s) => (
             <article
               key={s.title}
@@ -68,7 +68,7 @@ export default function Services() {
               <div className="mt-5">
                 <Link
                   href={s.href}
-                  className="inline-flex items-center justify-center rounded-xl bg-[#FF0000] px-4 py-2 font-semibold text-white shadow hover:shadow-md transition hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#FF0000] px-5 py-3 text-base font-semibold text-white shadow hover:shadow-md transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF0000]/60"
                 >
                   {s.cta}
                 </Link>

@@ -85,7 +85,7 @@ export default function ClassSignupForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded bg-[#FF0000] px-4 py-2 font-bold text-white hover:bg-[#cc0000] disabled:opacity-50"
+        className="rounded-xl bg-[#FF0000] px-5 py-3 text-base font-bold text-white hover:bg-[#cc0000] disabled:opacity-50"
       >
         {isSubmitting ? "Sending..." : "Sign Up"}
       </button>

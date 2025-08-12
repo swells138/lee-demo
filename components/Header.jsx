@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Header() {
   return (
     <header className="bg-[#FF0000] text-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between p-4">
-        <Link href="/" className="flex items-center space-x-2">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 p-4">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/LeesLOGO.JPG"
             alt="Lee&apos;s Concessions Logo"
@@ -15,7 +15,7 @@ export default function Header() {
           />
           <span className="font-bold">Lee&apos;s Concessions</span>
         </Link>
-        <nav className="space-x-4 font-semibold">
+        <nav className="flex flex-wrap items-center gap-3 font-semibold justify-center">
           <Link href="/about" className="hover:text-[#FFD700]">
             About
           </Link>

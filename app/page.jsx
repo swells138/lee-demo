@@ -65,7 +65,7 @@ export default function Home() {
           <h2 className="text-center text-2xl font-extrabold text-[#B00000]">
             Featured Services
           </h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
                 title: "Food Trailer",
@@ -105,7 +105,7 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl font-extrabold text-[#FF0000] text-center">What People Say</h2>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
           {[
             { name: "Taylor R.", quote: "The trailer was a hit—fast lines and amazing food!" },
             { name: "Jordan P.", quote: "Professional catering. Setup to cleanup was flawless." },
