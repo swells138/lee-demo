@@ -2,7 +2,7 @@ import Link from "next/link";
 import ShopSection from "@/components/ShopSection";
 import Hero from "@/components/Hero";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="space-y-16">
       <Hero />
