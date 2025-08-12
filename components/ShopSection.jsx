@@ -10,7 +10,7 @@ export default function ShopSection() {
         <Link href="/shop" className="text-sm font-medium hover:underline">View All →</Link>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.slice(0, 3).map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}

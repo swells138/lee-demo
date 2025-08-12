@@ -19,19 +19,20 @@ export default function Classes() {
   return (
     <div className="mx-auto max-w-5xl space-y-10 p-4">
       {/* HERO */}
-      <section className="relative overflow-hidden rounded-2xl">
-        <div className="relative aspect-[21/7] sm:aspect-[16/5]">
+      <section>
+        <div className="relative overflow-hidden rounded-2xl aspect-[21/9] sm:aspect-[16/7]">
           <Image
             src="/images/trailer.png"
             alt="Lee’s Concessions trailer"
             fill
-            className="object-cover"
             priority
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FF0000]/80 via-[#FF0000]/60 to-transparent" />
           <div className="absolute inset-0 flex items-center">
             <div className="px-6 text-white">
-              <h1 className="text-3xl sm:text-4xl font-extrabold">ServSafe Classes</h1>
+              <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">ServSafe Classes</h1>
               <p className="mt-2 max-w-2xl text-white/90">
                 Join our certified ServSafe courses so your team meets food safety standards
                 with confidence.
@@ -44,7 +45,7 @@ export default function Classes() {
       {/* SCHEDULE */}
       <section className="space-y-4">
         <h2 className="text-2xl font-extrabold text-[#FF0000]">Upcoming Schedule</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {schedule.map((s) => (
             <article
               key={s.date}
@@ -62,7 +63,7 @@ export default function Classes() {
               </p>
               <a
                 href="#signup"
-                className="mt-4 inline-block rounded-xl bg-[#FF0000] px-4 py-2 font-semibold text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF0000]/60"
+                className="mt-4 inline-block rounded-xl bg-[#FF0000] px-5 py-3 text-base font-semibold text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF0000]/60"
               >
                 Reserve a spot
               </a>
@@ -74,7 +75,7 @@ export default function Classes() {
       {/* WHAT YOU'LL LEARN */}
       <section className="space-y-3">
         <h2 className="text-2xl font-extrabold text-[#FF0000]">What You’ll Learn</h2>
-        <ul className="grid list-disc gap-2 pl-5 text-gray-700 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 list-disc gap-2 pl-5 text-gray-700 sm:grid-cols-2">
           <li>Time/temperature control (TCS) and preventing cross-contamination</li>
           <li>Personal hygiene, cleaning & sanitizing best practices</li>
           <li>Receiving, storage, and preparation procedures</li>
@@ -84,7 +85,7 @@ export default function Classes() {
       </section>
 
       {/* SIGN UP */}
-      <section id="signup" className="space-y-4">
+      <section id="signup" className="space-y-4 scroll-mt-20">
         <h2 className="text-2xl font-extrabold text-[#FF0000]">Sign Up</h2>
         <p className="text-gray-700">
           Submit the form and we’ll confirm your seat and send class details by email.

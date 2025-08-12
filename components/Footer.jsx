@@ -12,7 +12,7 @@ export default function Footer() {
             mlee2@woh.rr.com
           </a>
         </p>
-        <div className="mt-2 flex justify-center space-x-4">
+        <div className="mt-2 flex flex-wrap justify-center gap-4">
           <Link href="#" className="hover:underline">
             Facebook
           </Link>

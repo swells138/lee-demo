@@ -11,11 +11,16 @@ export const metadata = {
     "Professional Food Service, Catering & ServSafe Training in Ohio",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-sans text-gray-900 flex min-h-screen flex-col`}
+        className={`${inter.variable} font-sans text-gray-900 flex min-h-screen flex-col overflow-x-hidden antialiased`}
       >
         <Header />
         <main className="flex-1 bg-white/80 backdrop-blur-sm">{children}</main>

@@ -11,18 +11,19 @@ export default function Contact({ searchParams = {} }) {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="relative mx-auto max-w-6xl px-4">
-          <div className="relative aspect-[21/7] sm:aspect-[16/5] rounded-2xl overflow-hidden">
+          <div className="relative overflow-hidden rounded-2xl aspect-[21/9] sm:aspect-[16/7]">
             <Image
               src="/images/trailer.png"
               alt="Lee’s Concessions trailer"
               fill
-              className="object-cover scale-[1.02]"
               priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+              className="object-cover scale-[1.02]"
             />
             <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px]" />
             <div className="absolute inset-0 flex items-center">
               <div className="px-6">
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-[#FF0000]">Contact Us</h1>
+                <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight text-[#FF0000]">Contact Us</h1>
                 <p className="mt-2 text-gray-800/90">
                   We’ll get back to you within 1 business day.
                   <br />
@@ -42,7 +43,7 @@ export default function Contact({ searchParams = {} }) {
 
       {/* FORMS */}
       <section className="mx-auto max-w-6xl px-4">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-black/10 bg-white/95 p-6 shadow-sm">
             <h2 className="text-2xl font-extrabold text-[#FF0000]">Send a Message</h2>
             <p className="mt-1 text-gray-600">General questions, menu requests, anything!</p>

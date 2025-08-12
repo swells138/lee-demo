@@ -38,12 +38,12 @@ export default function ProductCard({ product }) {
         )}
       </div>
 
-      <div className="relative w-full aspect-square md:aspect-[4/3]">
+      <div className="relative aspect-square md:aspect-[4/3] overflow-hidden rounded-2xl">
         <Image
           src={imageSrc}
           alt={imageAlt || title}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
           loading="lazy"
         />
@@ -61,7 +61,7 @@ export default function ProductCard({ product }) {
           <Link
             href={inStock ? contactHref : "#"}
             aria-label={`Order inquiry for ${title}`}
-            className={`inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition
+            className={`inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-medium transition
               ${inStock
                 ? "bg-red-500 text-white hover:bg-red-600 active:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
                 : "bg-gray-200 text-gray-500 cursor-not-allowed"}`}
