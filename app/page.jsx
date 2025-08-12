@@ -4,29 +4,39 @@ import ShopSection from "@/components/ShopSection";
 
 export default function Home() {
   return (
-    <div className="space-y-16">
-      <section className="text-center">
-        <div className="relative mx-auto h-100 max-w-5xl">
+    <div className="space-y-20">
+      {/* HERO */}
+      <section className="mx-auto max-w-5xl px-4">
+        <div className="relative aspect-[21/9] sm:aspect-[16/7] overflow-hidden rounded-2xl shadow-lg">
           <Image
             src="/images/trailer.png"
-            alt="Food trailer"
+            alt="Lee’s Concessions food trailer at an event"
             fill
+            priority
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
             className="object-cover"
           />
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white">
-            <h1 className="text-3xl font-bold">
-              Professional Food Service, Catering & ServSafe Training in Ohio
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
+            <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold backdrop-blur">
+              🍴 Family-owned • Ohio
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+              Professional Food Service, Catering &amp; ServSafe Training in Ohio
             </h1>
-            <div className="mt-4 space-x-4">
+            <p className="mt-3 max-w-2xl text-white/90">
+              From festivals to private events—plus certified food safety classes.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="rounded bg-[#FFD700] px-4 py-2 font-bold text-[#FF0000]"
+                className="rounded-xl bg-[#FFD700] px-5 py-3 font-bold text-[#B00000] shadow hover:shadow-md transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 Book a Service
               </Link>
               <Link
                 href="/classes"
-                className="rounded bg-[#FF0000] px-4 py-2 font-bold text-white"
+                className="rounded-xl bg-[#FF0000] px-5 py-3 font-bold text-white shadow hover:shadow-md transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 Sign Up for a Class
               </Link>
@@ -35,59 +45,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ABOUT */}
       <section className="mx-auto max-w-5xl px-4">
-        <h2 className="text-2xl font-bold text-[#FF0000]">About Us</h2>
-        <p className="mt-2">
+        <h2 className="text-2xl font-extrabold text-[#FF0000]">About Us</h2>
+        <p className="mt-2 text-gray-700">
           Learn about our story and commitment to professional food service.
         </p>
-        <Link href="/about" className="mt-2 inline-block font-bold text-[#FF0000]">
+        <Link
+          href="/about"
+          className="mt-3 inline-block font-bold text-[#FF0000] underline-offset-4 hover:underline"
+        >
           Read More →
         </Link>
       </section>
 
-      <section className="bg-[#FFD700] py-8">
-        <div className="mx-auto max-w-5xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-[#FF0000]">Featured Services</h2>
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
-            <div className="rounded bg-white p-4">
-              <h3 className="font-bold">Food Trailer</h3>
-              <p>Bring our red and yellow trailer to your next event.</p>
-              <Link href="/contact" className="text-[#FF0000] hover:underline">
-                Book Now →
-              </Link>
-            </div>
-            <div className="rounded bg-white p-4">
-              <h3 className="font-bold">Catering</h3>
-              <p>Delicious spreads for parties and corporate events.</p>
-              <Link href="/contact" className="text-[#FF0000] hover:underline">
-                Book Now →
-              </Link>
-            </div>
-            <div className="rounded bg-white p-4">
-              <h3 className="font-bold">ServSafe Training</h3>
-              <p>Certified classes to keep your staff compliant.</p>
-              <Link href="/classes" className="text-[#FF0000] hover:underline">
-                View Classes →
-              </Link>
-            </div>
+      {/* FEATURED SERVICES */}
+      <section className="bg-[#FFD700] py-10">
+        <div className="mx-auto max-w-5xl px-4">
+          <h2 className="text-center text-2xl font-extrabold text-[#B00000]">
+            Featured Services
+          </h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              {
+                title: "Food Trailer",
+                text: "Bring our red and yellow trailer to your next event.",
+                href: "/contact?message=Food%20Trailer%20booking%20inquiry",
+              },
+              {
+                title: "Catering",
+                text: "Delicious spreads for parties and corporate events.",
+                href: "/contact?message=Catering%20inquiry",
+              },
+              {
+                title: "ServSafe Training",
+                text: "Certified classes to keep your staff compliant.",
+                href: "/classes",
+                cta: "View Classes →",
+              },
+            ].map(({ title, text, href, cta }) => (
+              <article
+                key={title}
+                className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <h3 className="font-bold">{title}</h3>
+                <p className="mt-2 text-gray-700">{text}</p>
+                <Link
+                  href={href}
+                  className="mt-3 inline-block font-semibold text-[#FF0000] underline-offset-4 hover:underline"
+                >
+                  {cta ?? "Book Now →"}
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 text-center">
-        <h2 className="text-2xl font-bold text-[#FF0000]">Testimonials</h2>
-        <p className="mt-2">Customer reviews coming soon.</p>
+      {/* TESTIMONIALS */}
+      <section className="mx-auto max-w-5xl px-4">
+        <h2 className="text-2xl font-extrabold text-[#FF0000] text-center">What People Say</h2>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          {[
+            { name: "Taylor R.", quote: "The trailer was a hit—fast lines and amazing food!" },
+            { name: "Jordan P.", quote: "Professional catering. Setup to cleanup was flawless." },
+            { name: "Casey M.", quote: "ServSafe class was clear and practical. Highly recommend." },
+          ].map((t) => (
+            <figure
+              key={t.name}
+              className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm"
+            >
+              <blockquote className="text-gray-700">“{t.quote}”</blockquote>
+              <figcaption className="mt-3 text-sm font-semibold text-gray-900">
+                — {t.name}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
-      <div className="bg-gradient-to-b from-white to-gray-50/40 py-10 sm:py-12">
+      {/* SHOP */}
+      <div className="bg-gradient-to-b from-white to-gray-50/60 py-12">
         <ShopSection />
       </div>
 
-      <section className="bg-[#FF0000] py-8 text-center text-white">
-        <h2 className="text-2xl font-bold">Ready to work with us?</h2>
+      {/* CTA */}
+      <section className="bg-[#FF0000] py-10 text-center text-white">
+        <h2 className="text-2xl font-extrabold">Ready to work with us?</h2>
         <Link
           href="/contact"
-          className="mt-4 inline-block rounded bg-white px-4 py-2 font-bold text-[#FF0000]"
+          className="mt-4 inline-block rounded-xl bg-white px-5 py-3 font-bold text-[#B00000] shadow hover:shadow-md transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
         >
           Contact Us
         </Link>

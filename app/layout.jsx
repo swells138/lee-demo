@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "Mdl Professional Food Service LLC DBA Lee's Concessions",
+  title: "Lee's Concessions",
   description:
     "Professional Food Service, Catering & ServSafe Training in Ohio",
 };

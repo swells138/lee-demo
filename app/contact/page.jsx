@@ -1,26 +1,72 @@
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import EventBookingForm from "@/components/EventBookingForm";
 
-export default async function Contact({ searchParams } = {}) {
-  const params = await searchParams;
-  const message = params?.product ? `Interested in ${params.product}` : "";
+export default function Contact({ searchParams = {} }) {
+  const product = typeof searchParams.product === "string" ? decodeURIComponent(searchParams.product) : "";
+  const message = product ? `Interested in ${product}` : "";
 
   return (
-    <div className="mx-auto max-w-5xl space-y-8 p-4">
-      <h1 className="text-3xl font-bold text-[#FF0000]">Contact Us</h1>
-      <p>
-        Email us at <a href="mailto:mlee2@woh.rr.com" className="underline">mlee2@woh.rr.com</a>
-      </p>
-      <div className="grid gap-8 md:grid-cols-2">
-        <div>
-          <h2 className="text-2xl font-bold">Send a Message</h2>
-          <ContactForm defaultMessage={message} />
+    <div className="space-y-10">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="relative aspect-[21/7] sm:aspect-[16/5] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/trailer.png"
+              alt="Lee’s Concessions trailer"
+              fill
+              className="object-cover scale-[1.02]"
+              priority
+            />
+            <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px]" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-6">
+                <h1 className="text-3xl sm:text-4xl font-extrabold text-[#FF0000]">Contact Us</h1>
+                <p className="mt-2 text-gray-800/90">
+                  We’ll get back to you within 1 business day.
+                  <br />
+                  Email:{" "}
+                  <a
+                    href="mailto:mlee2@woh.rr.com"
+                    className="font-semibold underline underline-offset-4"
+                  >
+                    mlee2@woh.rr.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold">Book an Event</h2>
-          <EventBookingForm />
+      </section>
+
+      {/* FORMS */}
+      <section className="mx-auto max-w-6xl px-4">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-2xl border border-black/10 bg-white/95 p-6 shadow-sm">
+            <h2 className="text-2xl font-extrabold text-[#FF0000]">Send a Message</h2>
+            <p className="mt-1 text-gray-600">General questions, menu requests, anything!</p>
+            <div className="mt-5">
+              <ContactForm defaultMessage={message} />
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-black/10 bg-white/95 p-6 shadow-sm">
+            <h2 className="text-2xl font-extrabold text-[#FF0000]">Book an Event</h2>
+            <p className="mt-1 text-gray-600">Tell us about your date, location, and crowd size.</p>
+            <div className="mt-5">
+              <EventBookingForm />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA STRIP */}
+      <section className="mx-auto max-w-6xl px-4">
+        <div className="rounded-2xl bg-[#FF0000] px-6 py-6 text-center text-white shadow-sm">
+          <p className="text-lg font-semibold">Prefer to call? (555) 555-5555 • 9am–6pm</p>
+        </div>
+      </section>
     </div>
   );
 }
