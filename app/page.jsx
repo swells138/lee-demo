@@ -1,3 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
+import ShopSection from "@/components/ShopSection";
+
 <section className="mx-auto max-w-5xl px-4">
   <div className="relative aspect-[4/3] sm:aspect-[16/7] overflow-hidden rounded-3xl shadow-lg ring-1 ring-black/10">
     <Image
