@@ -1,39 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import ShopSection from "@/components/ShopSection";
+import Hero from "@/components/Hero";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="space-y-16">
-      <section className="text-center">
-        <div className="relative mx-auto h-100 max-w-5xl">
-          <Image
-            src="/images/trailer.png"
-            alt="Food trailer"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white">
-            <h1 className="text-3xl font-bold">
-              Professional Food Service, Catering & ServSafe Training in Ohio
-            </h1>
-            <div className="mt-4 space-x-4">
-              <Link
-                href="/contact"
-                className="rounded bg-[#FFD700] px-4 py-2 font-bold text-[#FF0000]"
-              >
-                Book a Service
-              </Link>
-              <Link
-                href="/classes"
-                className="rounded bg-[#FF0000] px-4 py-2 font-bold text-white"
-              >
-                Sign Up for a Class
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <section className="mx-auto max-w-5xl px-4">
         <h2 className="text-2xl font-bold text-[#FF0000]">About Us</h2>
