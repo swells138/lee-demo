@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,10 +11,12 @@ const schema = z.object({
   phone: z.string().optional(),
   date: z.string().min(1, "Event date is required"),
   details: z.string().min(1, "Please provide event details"),
-  company: z.string().max(0).optional(), // honeypot
+  company: z.string().max(0, "Do not fill this field").optional(), // honeypot
 });
 
 export default function EventBookingForm() {
+  const [status, setStatus] = useState({ ok: null, msg: "" });
+
   const {
     register,
     handleSubmit,
@@ -22,14 +25,44 @@ export default function EventBookingForm() {
   } = useForm({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data) => {
-    if (data.company) return; // bot trap
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...data, message: data.details }),
-    });
-    reset();
-    alert("Booking request sent!");
+    // bot trap
+    if (data.company) return;
+
+    setStatus({ ok: null, msg: "" });
+
+    try {
+      const res = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          date: data.date,
+          details: data.details,
+          // Optional extras (enable in Formspree settings if desired):
+          // _subject: `New event booking from ${data.name}`,
+          // _replyto: data.email,
+        }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Submission failed");
+      }
+
+      reset();
+      setStatus({ ok: true, msg: "Thanks! Your booking request has been sent." });
+    } catch (e) {
+      setStatus({
+        ok: false,
+        msg:
+          "Sorry—something went wrong sending your request. Please try again or email me directly.",
+      });
+    }
   };
 
   const field =
@@ -38,12 +71,13 @@ export default function EventBookingForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {/* honeypot */}
+      {/* honeypot (keep in DOM, hidden for users) */}
       <input
         type="text"
         tabIndex={-1}
         aria-hidden="true"
         className="hidden"
+        autoComplete="off"
         {...register("company")}
       />
 
@@ -83,6 +117,18 @@ export default function EventBookingForm() {
       >
         {isSubmitting ? "Sending..." : "Book Event"}
       </button>
+
+      {/* Inline status */}
+      {status.ok === true && (
+        <p className="text-sm mt-2 text-green-700" role="status">
+          {status.msg}
+        </p>
+      )}
+      {status.ok === false && (
+        <p className="text-sm mt-2 text-red-700" role="status">
+          {status.msg}
+        </p>
+      )}
     </form>
   );
 }
