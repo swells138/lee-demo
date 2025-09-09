@@ -34,8 +34,9 @@ export default function Classes() {
             <div className="px-6 text-white">
               <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">ServSafe Classes</h1>
               <p className="mt-2 max-w-2xl text-white/90">
-                Join our certified ServSafe courses so your team meets food safety standards
-                with confidence.
+                ServSafe Certification & Ohio Provider
+
+I am an Ohio Department of Health–approved ServSafe provider, which means I can guide you through the entire ServSafe certification process from start to finish. I provide the required training, proctor the exam, submit results to the state, and ensure you receive your official Ohio Level 2 Food Protection Certificate — all in one place.
               </p>
             </div>
           </div>
