@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="space-y-16 sm:space-y-24">
       {/* HERO */}
-      <section aria-labelledby="hero-title" className="mx-auto max-w-6xl px-4">
+      <section aria-labelledby="hero-title" className="mt-4 sm:mt-6 mx-auto max-w-6xl px-4">
         <div className="relative overflow-hidden rounded-3xl shadow-lg ring-1 ring-black/10">
           {/* Height behavior: tall on mobile, aspect on md+ */}
           <div className="relative min-h-[65vh] md:min-h-0 md:aspect-[16/7]">
