@@ -39,7 +39,7 @@ export default function ContactForm({ defaultMessage = "" } = {}) {
     setStatus({ ok: null, msg: "" });
 
     try {
-      const res = await fetch("https://formspree.io/f/xdklyqlz", {
+      const res = await fetch("https://formspree.io/f/xqadnzpa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

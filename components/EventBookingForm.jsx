@@ -31,7 +31,7 @@ export default function EventBookingForm() {
     setStatus({ ok: null, msg: "" });
 
     try {
-      const res = await fetch("https://formspree.io/f/mldwaqwp", {
+      const res = await fetch("https://formspree.io/f/mdklbnen", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
